@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package rust_grpc_sample;
+
+message HelloStreamRequest {
+  string message = 1;
+}
+
+message HelloStreamResponse {
+  string reply_message = 1;
+}
+
+service HelloStreamService {
+  rpc HelloStream(HelloStreamRequest) returns (stream HelloStreamResponse);
+}

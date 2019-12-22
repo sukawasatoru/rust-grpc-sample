@@ -1,0 +1,33 @@
+  0$ openssl genrsa 2048 > server.key
+Generating RSA private key, 2048 bit long modulus (2 primes)
+.....................................................................................................................+++++
+.......................+++++
+e is 65537 (0x010001)
+  0$ openssl req -new -key server.key > server.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:JP
+State or Province Name (full name) [Some-State]:Tokyo
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:rust-grpc-sample
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:localhost
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+  0$ openssl x509 -days 36500 -req -signkey server.key < server.csr > server.crt
+Signature ok
+subject=C = JP, ST = Tokyo, O = rust-grpc-sample, CN = localhost
+Getting Private key
+  0$ openssl pkcs12 -export -inkey server.key < server.crt > server.p12
+Enter Export Password:
+Verifying - Enter Export Password:
+  0$ openssl x509 -outform der < server.crt > server.der

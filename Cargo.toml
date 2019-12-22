@@ -1,0 +1,27 @@
+[package]
+name = "rust-grpc-sample"
+version = "0.1.0"
+authors = ["Satoru Sukawa <sukawasatoru.github@outlook.jp>"]
+edition = "2018"
+
+[build-dependencies]
+protoc-rust-grpc = "=0.6.1"
+
+[dependencies]
+chrono = "=0.4.10"
+dotenv = "=0.15.0"
+env_logger = "=0.7.1"
+failure = "=0.1.6"
+futures = "=0.1.29"
+grpc = "=0.6.1"
+httpbis = "=0.7.0"
+log = "=0.4.8"
+protobuf = "=2.8.1"
+rust-embed = "=5.2.0"
+tls-api = "=0.1.22"
+tls-api-native-tls = "=0.1.22"
+tokio-core = "=0.1.17"
+
+[target.'cfg(windows)'.dependencies.winapi]
+version = "=0.3.6"
+features =  ["winbase"]
