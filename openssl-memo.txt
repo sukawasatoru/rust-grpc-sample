@@ -27,7 +27,3 @@ An optional company name []:
 Signature ok
 subject=C = JP, ST = Tokyo, O = rust-grpc-sample, CN = localhost
 Getting Private key
-  0$ openssl pkcs12 -export -inkey server.key < server.crt > server.p12
-Enter Export Password:
-Verifying - Enter Export Password:
-  0$ openssl x509 -outform der < server.crt > server.der

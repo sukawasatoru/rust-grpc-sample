@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package rust_grpc_sample;
+package rust_grpc_sample.hello_rpc;
 
 message HelloRequest {
   string name = 1;
