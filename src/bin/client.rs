@@ -1,9 +1,11 @@
-use hello_rpc::hello_rpc_service_client::HelloRpcServiceClient;
-use hello_rpc::HelloRequest;
-use hello_stream::hello_stream_service_client::HelloStreamServiceClient;
-use hello_stream::{HelloStreamRequest, HelloStreamResponse};
 use log::info;
 use rust_grpc_sample::asset::Asset;
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::hello_rpc_service_client::HelloRpcServiceClient;
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::HelloRequest;
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::hello_stream_service_client::HelloStreamServiceClient;
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::{
+    HelloStreamRequest, HelloStreamResponse,
+};
 use rust_grpc_sample::prelude::*;
 use tonic::transport::{Certificate, Channel, ClientTlsConfig};
 use tonic::Request;
@@ -51,14 +53,6 @@ async fn create_https_channel() -> Fallible<Channel> {
             .connect()
             .await?,
     )
-}
-
-pub mod hello_rpc {
-    tonic::include_proto!("rust_grpc_sample.hello_rpc");
-}
-
-pub mod hello_stream {
-    tonic::include_proto!("rust_grpc_sample.hello_stream");
 }
 
 /// 1. add async keyword and `#[tokio::main]` attribute to main.

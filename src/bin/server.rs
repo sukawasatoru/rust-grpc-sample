@@ -1,9 +1,15 @@
-use hello_rpc::hello_rpc_service_server::{HelloRpcService, HelloRpcServiceServer};
-use hello_rpc::{HelloRequest, HelloResponse};
-use hello_stream::hello_stream_service_server::{HelloStreamService, HelloStreamServiceServer};
-use hello_stream::{HelloStreamRequest, HelloStreamResponse};
 use log::info;
 use rust_grpc_sample::asset::Asset;
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::hello_rpc_service_server::{
+    HelloRpcService, HelloRpcServiceServer,
+};
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::{HelloRequest, HelloResponse};
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::hello_stream_service_server::{
+    HelloStreamService, HelloStreamServiceServer,
+};
+use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::{
+    HelloStreamRequest, HelloStreamResponse,
+};
 use rust_grpc_sample::prelude::*;
 use tonic::transport::{Identity, Server, ServerTlsConfig};
 use tonic::{Request, Response, Status};
@@ -67,14 +73,6 @@ impl HelloStreamService for HelloStreamServiceImpl {
 
         Ok(Response::new(rx))
     }
-}
-
-pub mod hello_rpc {
-    tonic::include_proto!("rust_grpc_sample.hello_rpc");
-}
-
-pub mod hello_stream {
-    tonic::include_proto!("rust_grpc_sample.hello_stream");
 }
 
 /// 1. add async keyword to main.
