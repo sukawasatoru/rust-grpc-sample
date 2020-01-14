@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package rust_grpc_sample.hello_stream;
+package rust_grpc_sample.api;
 
 message HelloStreamRequest {
   string message = 1;

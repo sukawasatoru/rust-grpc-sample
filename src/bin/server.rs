@@ -1,14 +1,14 @@
 use log::info;
 use rust_grpc_sample::asset::Asset;
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::hello_rpc_service_server::{
+use rust_grpc_sample::grpc_stub::rust_grpc_sample::api::hello_rpc_service_server::{
     HelloRpcService, HelloRpcServiceServer,
 };
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::{HelloRequest, HelloResponse};
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::hello_stream_service_server::{
+use rust_grpc_sample::grpc_stub::rust_grpc_sample::api::hello_stream_service_server::{
     HelloStreamService, HelloStreamServiceServer,
 };
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::{
-    HelloStreamRequest, HelloStreamResponse,
+use rust_grpc_sample::grpc_stub::rust_grpc_sample::api::{
+    HelloQueryRequest, HelloQueryResponse, HelloRequest, HelloResponse, HelloStreamRequest,
+    HelloStreamResponse,
 };
 use rust_grpc_sample::prelude::*;
 use tonic::transport::{Identity, Server, ServerTlsConfig};
@@ -31,6 +31,13 @@ impl HelloRpcService for HelloRpcServiceImpl {
                 request.get_ref().message
             ),
         }))
+    }
+
+    async fn hello_query(
+        &self,
+        _request: Request<HelloQueryRequest>,
+    ) -> Result<Response<HelloQueryResponse>, Status> {
+        unimplemented!()
     }
 }
 

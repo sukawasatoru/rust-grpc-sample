@@ -5,27 +5,26 @@ authors = ["Satoru Sukawa <sukawasatoru.github@outlook.jp>"]
 edition = "2018"
 
 [build-dependencies]
-protoc-rust-grpc = "=0.6.1"
-regex = "=1.3.1"
-tonic-build = "=0.1.0-beta.1"
+protoc-rust-grpc = "=0.6.2"
+regex = "=1.3.3"
+tonic-build = "=0.1.0"
 
 [dependencies]
-bytes = "=0.4.12"
 chrono = "=0.4.10"
 dotenv = "=0.15.0"
 env_logger = "=0.7.1"
 failure = "=0.1.6"
 futures = "=0.1.29"
 log = "=0.4.8"
-prost = "=0.5.0"
-prost-types = "=0.5.0"
+prost = "=0.6.0"
+prost-types = "=0.6.0"
 rust-embed = "=5.2.0"
-tokio-rustls = "=0.12.1"
+tokio-rustls = "=0.12.2"
 
 [dependencies.tokio]
-version = "=0.2.6"
+version = "=0.2.9"
 features = ["rt-threaded", "time", "stream", "fs", "macros", "uds"]
 
 [dependencies.tonic]
-version = "=0.1.0-beta.1"
+version = "=0.1.0"
 features = ["tls"]

@@ -1,10 +1,9 @@
 use log::info;
 use rust_grpc_sample::asset::Asset;
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::hello_rpc_service_client::HelloRpcServiceClient;
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_rpc::HelloRequest;
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::hello_stream_service_client::HelloStreamServiceClient;
-use rust_grpc_sample::grpc_stub::rust_grpc_sample_hello_stream::{
-    HelloStreamRequest, HelloStreamResponse,
+use rust_grpc_sample::grpc_stub::rust_grpc_sample::api::hello_rpc_service_client::HelloRpcServiceClient;
+use rust_grpc_sample::grpc_stub::rust_grpc_sample::api::hello_stream_service_client::HelloStreamServiceClient;
+use rust_grpc_sample::grpc_stub::rust_grpc_sample::api::{
+    HelloRequest, HelloStreamRequest, HelloStreamResponse,
 };
 use rust_grpc_sample::prelude::*;
 use tonic::transport::{Certificate, Channel, ClientTlsConfig};

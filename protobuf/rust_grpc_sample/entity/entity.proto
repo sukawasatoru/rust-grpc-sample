@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package rust_grpc_sample.entity;
+
+message HelloEntity {
+  string entity_message = 1;
+  double entity_double = 2;
+  int32 entity_int32 = 3;
+  int64 entity_int64 = 4;
+  uint32 entity_uint32 = 5;
+  uint64 entity_uint64 = 6;
+  sint32 entity_sint32 = 7;
+  sint64 entity_sint64 = 8;
+  fixed32 entity_fixed32 = 9;
+  fixed64 entity_fixed64 = 10;
+  sfixed32 entity_sfixed32 = 11;
+  sfixed64 entity_sfixed64 = 12;
+  bool entity_bool = 13;
+  bytes entity_bytes = 14;
+}
